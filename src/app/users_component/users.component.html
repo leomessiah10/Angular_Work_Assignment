@@ -1,0 +1,27 @@
+<div class="panel-block" *ngIf="users.length > 0; else noUsers">
+    <table class="table is-fullwidth" [ngClass]=tableClasses>
+        <thead>
+            <th>Sr. No.</th>
+            <th>Name</th>
+            <th>Username</th>
+            <th>Email</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let x of users; index as i ">
+                <td>{{i+1}}</td>
+                <td>{{x.name}}</td>
+                <td>{{x.username}}</td>
+                <td ngrHighlighter>{{x.email}}</td>
+                <button (click)="deleteclick(i) " class="card-footer-item button is-ghost ">Delete</button>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<ng-template #noUsers>
+    <div class="columns ">
+        <div class="column ">
+            <p class="message is-info message-body ">No Users Available</p>
+        </div>
+    </div>
+</ng-template>
